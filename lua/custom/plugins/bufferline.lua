@@ -1,8 +1,13 @@
 return {
   'akinsho/bufferline.nvim',
   version = '*',
+  after = 'catppuccin',
   dependencies = 'nvim-tree/nvim-web-devicons',
-  config = true,
+  config = function()
+    require('bufferline').setup {
+      highlights = require('catppuccin.groups.integrations.bufferline').get(),
+    }
+  end,
   init = function()
     vim.keymap.set('n', '<S-l>', ':BufferLineCycleNext<CR>', { desc = 'Next Buffer' })
     vim.keymap.set('n', '<S-h>', ':BufferLineCyclePrev<CR>', { desc = 'Next Buffer' })

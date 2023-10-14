@@ -8,6 +8,7 @@ return {
   },
   config = function()
     local cmp = require 'cmp'
+
     local luasnip = require 'luasnip'
 
     cmp.setup {
@@ -22,24 +23,25 @@ return {
           border = 'rounded',
         },
       },
-      snippet = { -- configure how nvim-cmp interacts with snippet engine
+      snippet = {
         expand = function(args)
           luasnip.lsp_expand(args.body)
         end,
       },
       mapping = cmp.mapping.preset.insert {
-        ['<C-k>'] = cmp.mapping.select_prev_item(), -- previous suggestion
-        ['<C-j>'] = cmp.mapping.select_next_item(), -- next suggestion
+        ['<C-k>'] = cmp.mapping.select_prev_item(),
+        ['<C-j>'] = cmp.mapping.select_next_item(),
         ['<C-b>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<C-Space>'] = cmp.mapping.complete(), -- show completion suggestions
-        ['<C-e>'] = cmp.mapping.abort(), -- close completion window
+        ['<C-Space>'] = cmp.mapping.complete(),
+        ['<C-e>'] = cmp.mapping.abort(),
         ['<CR>'] = cmp.mapping.confirm { select = false },
       },
       sources = cmp.config.sources {
-        { name = 'nvim_lsp' },
-        { name = 'buffer' },
-        { name = 'path' },
+        { name = 'copilot', group_index = 1, max_item_count = 5 },
+        { name = 'nvim_lsp', group_index = 1, max_item_count = 5 },
+        { name = 'buffer', group_index = 2, max_item_count = 5 },
+        { name = 'path', group_index = 2, max_item_count = 5 },
       },
     }
   end,
