@@ -11,6 +11,20 @@ return {
 
     local luasnip = require 'luasnip'
 
+    local reverse_prioritize = function(entry1, entry2)
+      if entry1.copilot and not entry2.copilot then
+        return false
+      elseif entry2.copilot and not entry1.copilot then
+        return true
+      end
+    end
+
+    local cmp_config_default = require 'cmp.config.default'()
+    local copilot_prioritize = require('copilot_cmp.comparators').prioritize
+    local copilot_reverse_prioritize = function(entry1, entry2)
+      return not copilot_prioritize(entry1, entry2)
+    end
+
     cmp.setup {
       completion = {
         completeopt = 'menu,menuone,preview,noselect',
@@ -42,6 +56,10 @@ return {
         { name = 'copilot', group_index = 1, max_item_count = 5 },
         { name = 'buffer', group_index = 2, max_item_count = 5 },
         { name = 'path', group_index = 2, max_item_count = 5 },
+      },
+      sorting = {
+        priority_weight = 1,
+        comparators = table.insert(cmp_config_default.sorting.comparators, 1, copilot_reverse_prioritize),
       },
     }
   end,
