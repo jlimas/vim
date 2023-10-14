@@ -6,8 +6,10 @@ return {
         lua = { 'stylua' },
         python = { 'isort', 'black' },
         go = { 'goimports', 'gofmt' },
-        javascript = { 'prettierd' },
-        typescript = { 'prettierd' },
+        javascript = { 'prettier' },
+        typescript = { 'prettier' },
+        javascriptreact = { 'prettier' },
+        typescriptreact = { 'prettier' },
       },
       format_on_save = {
         timeout_ms = 500,
