@@ -76,6 +76,7 @@ vim.keymap.set('i', 'jk', '<esc>', {})
 vim.keymap.set('n', '<leader>w', ':w<cr>', { desc = 'Save File' })
 vim.keymap.set('n', '<leader>q', ':q!<cr>', { desc = 'Close Window' })
 vim.keymap.set('n', '<leader>x', ':qa!<cr>', { desc = 'Exit Vim' })
+vim.keymap.set('n', '<leader>bd', ':bd<cr>', { desc = 'Delete Buffer' })
 
 -- Move between windows with Ctrl
 vim.keymap.set('n', '<C-h>', '<C-w>h', {})
