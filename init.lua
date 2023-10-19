@@ -58,7 +58,6 @@ require('lazy').setup({
     end,
   },
 
-  'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
   'tpope/vim-sleuth',
   'folke/neodev.nvim',
@@ -83,6 +82,14 @@ vim.keymap.set('n', '<C-h>', '<C-w>h', {})
 vim.keymap.set('n', '<C-j>', '<C-w>j', {})
 vim.keymap.set('n', '<C-k>', '<C-w>k', {})
 vim.keymap.set('n', '<C-l>', '<C-w>l', {})
+
+-- Resize Windows Height
+vim.keymap.set('n', '<C-w>k', ':resize +10<cr>', {})
+vim.keymap.set('n', '<C-w>j', ':resize -10<cr>', {})
+
+-- Resize Windows Width
+vim.keymap.set('n', '<C-w>l', ':vertical resize +10<cr>', {})
+vim.keymap.set('n', '<C-w>h', ':vertical resize -10<cr>', {})
 
 -- Set highlight on search
 vim.o.hlsearch = false
