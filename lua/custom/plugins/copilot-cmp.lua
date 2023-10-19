@@ -6,20 +6,37 @@ return {
   config = function()
     require('copilot_cmp').setup()
     local notify = require 'notify'
+    local enabled = false
+
+    local function display_notification(title, level, message)
+      notify.dismiss { silent = true, pending = true }
+      notify(title, level, { title = message, timeout = 2000 })
+    end
 
     local enable = function()
+      enabled = true
       vim.cmd ':Copilot enable'
-      notify('Ready', 'info', { title = 'Copilot' })
+      display_notification('¡Vamos!', 'info', 'Copilot')
     end
 
-    local disable = function()
+    local disable = function(show)
+      enabled = false
       vim.cmd ':Copilot disable'
-      notify('Disabled', 'warn', { title = 'Copilot' })
+      if show then
+        display_notification('¡Descansando!', 'warn', 'Copilot')
+      end
     end
 
-    disable()
+    local toggle = function()
+      if enabled then
+        disable(true)
+      else
+        enable()
+      end
+    end
 
-    vim.keymap.set('n', '<leader>cu', enable, { desc = 'Enable Copilot' })
-    vim.keymap.set('n', '<leader>cd', disable, { desc = 'Disable Copilot' })
+    disable(false)
+
+    vim.keymap.set('n', '=', toggle, { desc = 'Toggle Copilot' })
   end,
 }
