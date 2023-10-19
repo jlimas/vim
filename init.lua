@@ -62,8 +62,8 @@ require('lazy').setup({
   'tpope/vim-sleuth',
   'folke/neodev.nvim',
 
-  { import = 'custom.plugins' },
-  { import = 'custom.plugins.lsp' },
+  { import = 'plugins' },
+  { import = 'plugins.lsp' },
 }, {})
 
 vim.cmd 'highlight Pmenu guibg=NONE'
