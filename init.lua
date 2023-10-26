@@ -33,6 +33,9 @@ require('lazy').setup({
             enabled = true,
           },
           lsp_trouble = true,
+          indent_blankline = {
+            enabled = true,
+          },
           which_key = true,
           native_lsp = {
             enabled = true,
