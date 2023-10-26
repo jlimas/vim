@@ -61,6 +61,7 @@ require('lazy').setup({
     end,
   },
 
+  'tpope/vim-fugitive',
   'tpope/vim-sleuth',
   'folke/neodev.nvim',
 
