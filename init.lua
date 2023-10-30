@@ -84,6 +84,10 @@ vim.keymap.set('n', '<leader>bd', ':bd<cr>', { desc = 'Delete Buffer' })
 vim.keymap.set('n', '<leader>bcp', ':BufferLinePickClose<cr>', { desc = 'Close Buffer Pick' })
 vim.keymap.set('n', '<leader>bco', ':BufferLineCloseOthers<cr>', { desc = 'Close Other Buffers' })
 
+-- Centered Scrolling
+vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Center cursor after moving down half-page' })
+vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Center cursor after moving up half-page' })
+
 -- Move between windows with Ctrl
 vim.keymap.set('n', '<C-h>', '<C-w>h', {})
 vim.keymap.set('n', '<C-j>', '<C-w>j', {})
