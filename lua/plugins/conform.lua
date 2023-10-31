@@ -7,7 +7,7 @@ return {
         python = { 'isort', 'black' },
         go = { 'goimports', 'gofmt' },
         javascript = { 'prettier' },
-        typescript = { 'prettier' },
+        typescript = { 'prettier', 'eslint_d' },
         javascriptreact = { 'prettier' },
         typescriptreact = { 'prettier' },
         json = { 'prettier' },
