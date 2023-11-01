@@ -92,7 +92,7 @@ return {
     lspconfig['emmet_ls'].setup {
       capabilities = capabilities,
       on_attach = on_attach,
-      filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less' },
+      filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less', 'svelte' },
     }
 
     lspconfig['html'].setup {
@@ -126,6 +126,22 @@ return {
     lspconfig['tailwindcss'].setup {
       capabilities = capabilities,
       on_attach = on_attach,
+    }
+
+    lspconfig['svelte'].setup {
+      capabilities = capabilities,
+      on_attach = on_attach,
+    }
+
+    lspconfig.svelte.setup {
+      on_attach = function(client)
+        vim.api.nvim_create_autocmd('BufWritePost', {
+          pattern = { '*.js', '*.ts' },
+          callback = function(ctx)
+            client.notify('$/onDidChangeTsOrJsFile', { uri = ctx.file })
+          end,
+        })
+      end,
     }
   end,
 }

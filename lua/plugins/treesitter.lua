@@ -46,6 +46,7 @@ return {
           'query',
           'go',
           'http',
+          'svelte',
         },
       }
     end,

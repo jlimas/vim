@@ -11,6 +11,7 @@ return {
         javascriptreact = { 'prettier' },
         typescriptreact = { 'prettier' },
         json = { 'prettier' },
+        svelte = { 'prettier', 'eslint_d' },
       },
       format_on_save = {
         timeout_ms = 2500,
