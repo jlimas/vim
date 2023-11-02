@@ -18,8 +18,15 @@ return {
 
     local opts = { noremap = true, silent = true }
 
-    local on_attach = function(_, bufnr)
+    local on_attach = function(client, bufnr)
       opts.buffer = bufnr
+
+      vim.api.nvim_create_autocmd('BufWritePost', {
+        pattern = { '*.js', '*.ts' },
+        callback = function(ctx)
+          client.notify('$/onDidChangeTsOrJsFile', { uri = ctx.file })
+        end,
+      })
 
       -- set keybinds
       opts.desc = 'Show LSP references'
@@ -131,17 +138,6 @@ return {
     lspconfig['svelte'].setup {
       capabilities = capabilities,
       on_attach = on_attach,
-    }
-
-    lspconfig.svelte.setup {
-      on_attach = function(client)
-        vim.api.nvim_create_autocmd('BufWritePost', {
-          pattern = { '*.js', '*.ts' },
-          callback = function(ctx)
-            client.notify('$/onDidChangeTsOrJsFile', { uri = ctx.file })
-          end,
-        })
-      end,
     }
   end,
 }
