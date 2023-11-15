@@ -53,11 +53,10 @@ return {
       },
       sources = cmp.config.sources {
         { name = 'copilot' },
-        { name = 'luasnip' },
         { name = 'nvim_lsp' },
         { name = 'nvim_lua' },
         { name = 'path' },
-        { name = 'buffer' },
+        { name = 'buffer', max_item_count = 2 },
       },
     }
   end,
