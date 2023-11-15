@@ -15,10 +15,49 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
+  -- Theme Color Scheme
   {
-    'nordtheme/vim',
+    'catppuccin/nvim',
+    lazy = false,
+    name = 'catppuccin',
     config = function()
-      vim.cmd [[colorscheme nord]]
+      require('catppuccin').setup {
+        integrations = {
+          cmp = true,
+          harpoon = true,
+          mason = true,
+          neotree = true,
+          gitsigns = true,
+          hop = true,
+          telescope = {
+            enabled = true,
+          },
+          lsp_trouble = true,
+          indent_blankline = {
+            enabled = true,
+          },
+          which_key = true,
+          native_lsp = {
+            enabled = true,
+            virtual_text = {
+              errors = { 'italic' },
+              hints = { 'italic' },
+              warnings = { 'italic' },
+              information = { 'italic' },
+            },
+            underlines = {
+              errors = { 'underline' },
+              hints = { 'underline' },
+              warnings = { 'underline' },
+              information = { 'underline' },
+            },
+            inlay_hints = {
+              background = true,
+            },
+          },
+        },
+      }
+      vim.cmd [[colorscheme catppuccin]]
     end,
   },
 
