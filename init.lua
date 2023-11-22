@@ -40,10 +40,10 @@ require('lazy').setup({
           native_lsp = {
             enabled = true,
             virtual_text = {
-              errors = { 'italic' },
-              hints = { 'italic' },
-              warnings = { 'italic' },
-              information = { 'italic' },
+              errors = {},
+              hints = {},
+              warnings = {},
+              information = {},
             },
             underlines = {
               errors = { 'underline' },
@@ -55,6 +55,19 @@ require('lazy').setup({
               background = true,
             },
           },
+        },
+        styles = {
+          comments = {},
+          loops = {},
+          functions = {},
+          keywords = {},
+          strings = {},
+          variables = {},
+          numbers = {},
+          booleans = {},
+          properties = {},
+          types = {},
+          operators = {},
         },
       }
       vim.cmd [[colorscheme catppuccin-frappe]]
