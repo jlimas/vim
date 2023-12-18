@@ -33,7 +33,7 @@ return {
         format = function(entry, vim_item)
           vim_item.menu = ({
             copilot = '[Copilot]',
-            luasnip = 'LuaSnip',
+            -- luasnip = 'LuaSnip',
             nvim_lua = '[NVim Lua]',
             nvim_lsp = '[LSP]',
             buffer = '[Buffer]',
