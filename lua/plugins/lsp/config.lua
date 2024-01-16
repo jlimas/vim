@@ -139,5 +139,10 @@ return {
       capabilities = capabilities,
       on_attach = on_attach,
     }
+
+    lspconfig['phpactor'].setup {
+      capabilities = capabilities,
+      on_attach = on_attach,
+    }
   end,
 }
