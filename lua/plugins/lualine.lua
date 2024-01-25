@@ -14,6 +14,9 @@ return {
         theme = 'catppuccin',
       },
       sections = {
+        lualine_b = {
+          { require('grapple').key, cond = require('grapple').exists },
+        },
         lualine_c = {
           { git_blame.get_current_blame_text, cond = git_blame.is_blame_text_available },
         },
