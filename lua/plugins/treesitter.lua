@@ -47,6 +47,7 @@ return {
           'go',
           'http',
           'svelte',
+          'regex',
         },
       }
     end,
