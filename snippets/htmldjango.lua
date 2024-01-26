@@ -22,6 +22,15 @@ return {
     )
   ),
   s(
+    'static',
+    fmt(
+      [[
+       {{% static '{}' %}}
+      ]],
+      { i(1, 'url') }
+    )
+  ),
+  s(
     'include',
     fmt(
       [[
