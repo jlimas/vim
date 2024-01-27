@@ -12,6 +12,9 @@ return {
     local luasnip = require 'luasnip'
 
     cmp.setup {
+      performance = {
+        max_view_entries = 5,
+      },
       completion = {
         completeopt = 'menu,menuone,preview,noselect',
       },
@@ -52,12 +55,11 @@ return {
         ['<CR>'] = cmp.mapping.confirm { select = false },
       },
       sources = cmp.config.sources {
-        { name = 'copilot' },
-        { name = 'nvim_lsp' },
-        { name = 'nvim_lua' },
-        { name = 'luasnip' },
-        { name = 'path' },
-        -- { name = 'buffer', max_item_count = 2 },
+        { name = 'copilot', keyword_length = 3 },
+        { name = 'nvim_lsp', keyword_length = 3 },
+        { name = 'nvim_lua', keyword_length = 3 },
+        { name = 'luasnip', keyword_length = 3 },
+        { name = 'path', keyword_length = 3 },
       },
     }
   end,
