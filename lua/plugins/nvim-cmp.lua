@@ -13,7 +13,7 @@ return {
 
     cmp.setup {
       performance = {
-        max_view_entries = 5,
+        max_view_entries = 7,
       },
       completion = {
         completeopt = 'menu,menuone,preview,noselect',
@@ -55,7 +55,7 @@ return {
         ['<CR>'] = cmp.mapping.confirm { select = false },
       },
       sources = cmp.config.sources {
-        { name = 'copilot', keyword_length = 3 },
+        { name = 'copilot' },
         { name = 'nvim_lsp', keyword_length = 3 },
         { name = 'nvim_lua', keyword_length = 3 },
         { name = 'luasnip', keyword_length = 3 },

@@ -23,6 +23,8 @@ require('lazy').setup({
     config = function()
       require('catppuccin').setup {
         integrations = {
+          noice = true,
+          notifier = true,
           cmp = true,
           harpoon = true,
           mason = true,
@@ -88,28 +90,29 @@ vim.cmd 'highlight NormalFloat guibg=NONE'
 
 -- Custom Keybindings
 vim.keymap.set('i', 'jk', '<esc>', {})
-vim.keymap.set('n', '<leader>w', ':w<cr>', { desc = 'Save File' })
-vim.keymap.set('n', '<leader>q', ':q!<cr>', { desc = 'Close Window' })
-vim.keymap.set('n', '<leader>x', ':qa!<cr>', { desc = 'Exit Vim' })
+vim.keymap.set('n', '<leader>w', ':w<cr>', { desc = 'Save File', silent = true })
+vim.keymap.set('n', '<leader>q', ':q!<cr>', { desc = 'Close Window', silent = true })
+vim.keymap.set('n', '<leader>x', ':qa!<cr>', { desc = 'Exit Vim', silent = true })
 
 -- Buffer Management
-vim.keymap.set('n', '<leader>bd', ':bd<cr>', { desc = 'Delete Buffer' })
-vim.keymap.set('n', '<leader>bcp', ':BufferLinePickClose<cr>', { desc = 'Close Buffer Pick' })
-vim.keymap.set('n', '<leader>bco', ':BufferLineCloseOthers<cr>', { desc = 'Close Other Buffers' })
+vim.keymap.set('n', '<leader>bd', ':bd<cr>', { desc = 'Delete Buffer', silent = true })
+vim.keymap.set('n', '<leader>bc', ':close<cr>', { desc = 'Close Buffer', silent = true })
+vim.keymap.set('n', '<leader>bp', ':BufferLinePickClose<cr>', { desc = 'Close Buffer Pick', silent = true })
+vim.keymap.set('n', '<leader>bo', ':BufferLineCloseOthers<cr>', { desc = 'Close Other Buffers', silent = true })
 
 -- Move between windows with Ctrl
-vim.keymap.set('n', '<C-h>', '<C-w>h', {})
-vim.keymap.set('n', '<C-j>', '<C-w>j', {})
-vim.keymap.set('n', '<C-k>', '<C-w>k', {})
-vim.keymap.set('n', '<C-l>', '<C-w>l', {})
+vim.keymap.set('n', '<C-h>', '<C-w>h', { silent = true })
+vim.keymap.set('n', '<C-j>', '<C-w>j', { silent = true })
+vim.keymap.set('n', '<C-k>', '<C-w>k', { silent = true })
+vim.keymap.set('n', '<C-l>', '<C-w>l', { silent = true })
 
 -- Resize Windows Height
-vim.keymap.set('n', '<C-w>k', ':resize +10<cr>', {})
-vim.keymap.set('n', '<C-w>j', ':resize -10<cr>', {})
+vim.keymap.set('n', '<C-w>k', ':resize +10<cr>', { silent = true })
+vim.keymap.set('n', '<C-w>j', ':resize -10<cr>', { silent = true })
 
 -- Resize Windows Width
-vim.keymap.set('n', '<C-w>l', ':vertical resize +10<cr>', {})
-vim.keymap.set('n', '<C-w>h', ':vertical resize -10<cr>', {})
+vim.keymap.set('n', '<C-w>l', ':vertical resize +10<cr>', { silent = true })
+vim.keymap.set('n', '<C-w>h', ':vertical resize -10<cr>', { silent = true })
 
 -- Set highlight on search
 vim.o.hlsearch = false
