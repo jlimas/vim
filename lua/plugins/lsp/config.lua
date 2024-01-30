@@ -77,7 +77,8 @@ return {
       keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
 
       opts.desc = 'Smart rename'
-      keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
+      -- keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
+      keymap.set('n', '<leader>rn', ':Lspsaga rename<CR>', opts)
 
       opts.desc = 'Show buffer diagnostics'
       keymap.set('n', '<leader>D', '<cmd>Telescope diagnostics bufnr=0<CR>', opts)
@@ -92,12 +93,14 @@ return {
       keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 
       opts.desc = 'Show documentation for what is under cursor'
-      keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+      -- keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+      keymap.set('n', 'K', ':Lspsaga hover_doc<CR>', opts)
 
-      opts.desc = 'Restart LSP'
-      keymap.set('n', '<leader>rs', ':LspRestart<CR>', opts)
+      keymap.set('n', '<leader>rs', ':LspRestart<CR>', { desc = 'Restart LSP' })
 
-      keymap.set('n', '<leader>k', hoverFunction, opts)
+      keymap.set('n', '<leader>k', ':Lspsaga hover_doc ++keep<CR>', { desc = 'Hover Doc & Keep' })
+
+      keymap.set('n', '<leader><leader>f', ':Lspsaga finder<CR>', { desc = 'Open LSP Finder' })
     end
 
     -- used to enable autocompletion (assign to every lsp server config)
