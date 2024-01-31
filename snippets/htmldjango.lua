@@ -34,7 +34,7 @@ return {
     'include',
     fmt(
       [[
-       {{% include '{}' %}}
+       {{% include '{}.html' %}}
       ]],
       { i(1, 'url') }
     )
@@ -57,6 +57,17 @@ return {
         {{% endblock %}}
       ]],
       { i(1, 'block'), i(2, '') }
+    )
+  ),
+  s(
+    'ifcond',
+    fmt(
+      [[
+        {{% if {} %}}
+          {}
+        {{% endif %}}
+      ]],
+      { i(1, 'condition'), i(2, '') }
     )
   ),
 }
