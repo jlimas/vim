@@ -86,21 +86,12 @@ return {
       opts.desc = 'Show line diagnostics'
       keymap.set('n', '<leader>d', vim.diagnostic.open_float, opts)
 
-      opts.desc = 'Go to previous diagnostic'
-      keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
-
-      opts.desc = 'Go to next diagnostic'
-      keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
-
-      opts.desc = 'Show documentation for what is under cursor'
-      -- keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-      keymap.set('n', 'K', ':Lspsaga hover_doc<CR>', opts)
-
-      keymap.set('n', '<leader>rs', ':LspRestart<CR>', { desc = 'Restart LSP' })
-
-      keymap.set('n', '<leader>k', ':Lspsaga hover_doc ++keep<CR>', { desc = 'Hover Doc & Keep' })
-
-      keymap.set('n', '<leader><leader>f', ':Lspsaga finder<CR>', { desc = 'Open LSP Finder' })
+      keymap.set('n', '[d', '<cmd>Lspsaga diagnostic_jump_next<cr>', { desc = 'Diagnostic Next' })
+      keymap.set('n', ']d', '<cmd>Lspsaga diagnostic_jump_prev<cr>', { desc = 'Diagnostic Next' })
+      keymap.set('n', 'K', '<cmd>Lspsaga hover_doc<cr>', { desc = 'Show documentation for what is under cursor' })
+      keymap.set('n', '<leader>rs', '<cmd>LspRestart<cr>', { desc = 'Restart LSP' })
+      keymap.set('n', '<leader>k', '<cmd>Lspsaga hover_doc ++keep<cr>', { desc = 'Hover Doc & Keep' })
+      keymap.set('n', '<leader><leader>f', '<cmd>Lspsaga finder<cr>', { desc = 'Open LSP Finder' })
     end
 
     -- used to enable autocompletion (assign to every lsp server config)
