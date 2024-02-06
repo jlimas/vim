@@ -114,6 +114,20 @@ vim.keymap.set('n', '<C-w>j', ':resize -10<cr>', { silent = true })
 vim.keymap.set('n', '<C-w>l', ':vertical resize +10<cr>', { silent = true })
 vim.keymap.set('n', '<C-w>h', ':vertical resize -10<cr>', { silent = true })
 
+vim.api.nvim_create_autocmd('RecordingEnter', {
+  callback = function()
+    local notify = require 'notify'
+    notify('Started Macro Recording', 'info', { title = 'Macros' })
+  end,
+})
+
+vim.api.nvim_create_autocmd('RecordingLeave', {
+  callback = function()
+    local notify = require 'notify'
+    notify('Stopped Macro Recording', 'warn', { title = 'Macros' })
+  end,
+})
+
 -- Set highlight on search
 vim.o.hlsearch = false
 
