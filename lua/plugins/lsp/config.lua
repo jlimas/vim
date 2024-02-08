@@ -116,8 +116,23 @@ return {
       settings = {
         python = {
           analysis = {
+            logLevel = 'error',
+            disableOrganizeImports = false,
             typeCheckingMode = 'off',
+            diagnosticSeverityOverrides = {
+              reportUndefinedVariable = 'none',
+            },
           },
+        },
+      },
+    }
+
+    lspconfig['ruff_lsp'].setup {
+      capabilities = capabilities,
+      on_attach = on_attach,
+      init_options = {
+        settings = {
+          args = {},
         },
       },
     }
