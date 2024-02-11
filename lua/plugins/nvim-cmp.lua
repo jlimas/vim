@@ -11,6 +11,14 @@ return {
     local cmp = require 'cmp'
     local luasnip = require 'luasnip'
 
+    cmp.event:on('menu_opened', function()
+      vim.b.copilot_suggestion_hidden = false
+    end)
+
+    cmp.event:on('menu_closed', function()
+      vim.b.copilot_suggestion_hidden = false
+    end)
+
     cmp.setup {
       performance = {
         max_view_entries = 7,
@@ -55,7 +63,7 @@ return {
         ['<CR>'] = cmp.mapping.confirm { select = false },
       },
       sources = cmp.config.sources {
-        { name = 'copilot' },
+        -- { name = 'copilot' },
         { name = 'nvim_lsp', keyword_length = 3 },
         { name = 'nvim_lua', keyword_length = 3 },
         { name = 'luasnip', keyword_length = 3 },
