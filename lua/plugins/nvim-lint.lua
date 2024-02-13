@@ -5,8 +5,8 @@ return {
     local nvimlint = require 'lint'
 
     nvimlint.linters_by_ft = {
-      javascript = {},
-      typescript = {},
+      javascript = { 'eslint_d' },
+      typescript = { 'eslint_d' },
     }
 
     vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost', 'InsertLeave' }, {
@@ -32,6 +32,7 @@ return {
       vim.cmd 'silent !eslint_d restart'
       notify.notify('Restarted ESLint', 'info', { title = 'Linters' })
     end
+
     vim.keymap.set('n', '<leader>re', restartEsLintD, { desc = 'Restart ESLint_D' })
   end,
 }
