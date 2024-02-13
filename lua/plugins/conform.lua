@@ -6,6 +6,7 @@ return {
         lua = { 'stylua' },
         python = { 'isort', 'black' },
         go = { 'goimports', 'gofmt' },
+        yaml = { 'prettier' },
         javascript = { 'prettier' },
         typescript = { 'prettier', 'eslint_d' },
         javascriptreact = { 'prettier' },
