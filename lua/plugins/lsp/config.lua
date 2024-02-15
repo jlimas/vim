@@ -73,6 +73,9 @@ return {
       opts.desc = 'Show LSP type definitions'
       keymap.set('n', 'gt', '<cmd>Telescope lsp_type_definitions<CR>', opts)
 
+      opts.desc = 'Show LSP Document Symbols'
+      keymap.set('n', 'gs', '<cmd>Telescope lsp_document_symbols<CR>', opts)
+
       opts.desc = 'See available code actions'
       keymap.set({ 'n', 'v' }, '<leader>ca', ':Lspsaga code_action<CR>', opts)
 
