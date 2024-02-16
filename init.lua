@@ -173,6 +173,9 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.swapfile = false
 
+vim.opt.list = true
+vim.opt.listchars = { tab = '▸ ', trail = '~', extends = '❯', precedes = '❮' }
+
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
 
