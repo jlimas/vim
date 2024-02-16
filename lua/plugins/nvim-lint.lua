@@ -7,6 +7,8 @@ return {
     nvimlint.linters_by_ft = {
       javascript = { 'eslint_d' },
       typescript = { 'eslint_d' },
+      json = { 'jsonlint' },
+      jsonc = { 'jsonlint' },
     }
 
     vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost', 'InsertLeave' }, {
