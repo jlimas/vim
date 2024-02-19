@@ -14,11 +14,21 @@ return {
     vim.keymap.set('n', '<leader>fc', builtin.colorscheme, { desc = 'Search Marks Tags' })
 
     telescope.setup {
+      extensions = {
+        fzf = {
+          fuzzy = true,
+          override_generic_sorter = true,
+          override_file_sorter = true,
+          case_mode = 'smart_case',
+        },
+      },
       pickers = {
         colorscheme = {
           enable_preview = true,
         },
       },
     }
+
+    telescope.load_extension 'fzf'
   end,
 }
