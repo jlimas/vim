@@ -1,42 +1,19 @@
 return {
   'cbochs/grapple.nvim',
-  config = function()
-    local grapple = require 'grapple'
-    local notify = require 'notify'
-    grapple.setup {}
-
-    vim.keymap.set('n', '<leader>m', function()
-      grapple.tag { scope = 'git' }
-      notify.notify('Added to marks', 'success', { title = 'Grapple' })
-    end, { desc = 'Grapple Mark' })
-
-    vim.keymap.set('n', '<leader>M', function()
-      grapple.untag { scope = 'git' }
-      notify.notify('Removed from marks', 'warn', { title = 'Grapple' })
-    end, { desc = 'Grapple Remove Mark' })
-
-    vim.keymap.set('n', '<leader>jf', function()
-      grapple.open_tags { scope = 'git' }
-    end, { desc = 'Grapple Display Tags' })
-
-    vim.keymap.set('n', '<leader>jJ', function()
-      require('grapple').toggle { key = 'main' }
-      notify.notify('File marked as [main]', 'success', { title = 'Grapple' })
-    end, { desc = 'Grapple Mark [main]' })
-
-    vim.keymap.set('n', '<leader>jj', function()
-      require('grapple').select { key = 'main' }
-      notify.notify('Moved to [main]', 'success', { title = 'Grapple' })
-    end, { desc = 'Grapple Move [main]' })
-
-    vim.keymap.set('n', '<leader>jK', function()
-      require('grapple').toggle { key = 'ref' }
-      notify.notify('File marked as [ref]', 'success', { title = 'Grapple' })
-    end, { desc = 'Grapple Mark [ref]' })
-
-    vim.keymap.set('n', '<leader>jk', function()
-      require('grapple').select { key = 'ref' }
-      notify.notify('Moved to [ref]', 'success', { title = 'Grapple' })
-    end, { desc = 'Grapple Move [ref]' })
-  end,
+  opts = {
+    scope = 'git',
+  },
+  event = { 'BufReadPost', 'BufNewFile' },
+  cmd = 'Grapple',
+  keys = {
+    { '<leader>m', '<cmd>Grapple toggle<cr>', desc = 'Grapple toggle tag' },
+    { '<leader>k', '<cmd>Grapple toggle_tags<cr>', desc = 'Grapple toggle tags' },
+    { '<leader>K', '<cmd>Grapple toggle_scopes<cr>', desc = 'Grapple toggle scopes' },
+    { '<leader>j', '<cmd>Grapple cycle forward<cr>', desc = 'Grapple cycle forward' },
+    { '<leader>J', '<cmd>Grapple cycle backward<cr>', desc = 'Grapple cycle backward' },
+    { '<leader>1', '<cmd>Grapple select index=1<cr>', desc = 'Grapple select 1' },
+    { '<leader>2', '<cmd>Grapple select index=2<cr>', desc = 'Grapple select 2' },
+    { '<leader>3', '<cmd>Grapple select index=3<cr>', desc = 'Grapple select 3' },
+    { '<leader>4', '<cmd>Grapple select index=3<cr>', desc = 'Grapple select 4' },
+  },
 }

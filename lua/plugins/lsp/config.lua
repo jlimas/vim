@@ -93,7 +93,7 @@ return {
       keymap.set('n', ']d', '<cmd>Lspsaga diagnostic_jump_prev<cr>', { desc = 'Diagnostic Next' })
       keymap.set('n', 'K', '<cmd>Lspsaga hover_doc<cr>', { desc = 'Show documentation for what is under cursor' })
       keymap.set('n', '<leader>rs', '<cmd>LspRestart<cr>', { desc = 'Restart LSP' })
-      keymap.set('n', '<leader>k', '<cmd>Lspsaga hover_doc ++keep<cr>', { desc = 'Hover Doc & Keep' })
+      keymap.set('n', '<leader><leader>k', '<cmd>Lspsaga hover_doc ++keep<cr>', { desc = 'Hover Doc & Keep' })
       keymap.set('n', '<leader><leader>f', '<cmd>Lspsaga finder<cr>', { desc = 'Open LSP Finder' })
     end
 
