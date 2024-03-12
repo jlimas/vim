@@ -16,7 +16,7 @@ return {
     end, { desc = 'Grapple Remove Mark' })
 
     vim.keymap.set('n', '<leader>jf', function()
-      grapple.popup_tags 'git'
+      grapple.open_tags { scope = 'git' }
     end, { desc = 'Grapple Display Tags' })
 
     vim.keymap.set('n', '<leader>jJ', function()
