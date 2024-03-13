@@ -3,9 +3,9 @@ local selection = require('snippets.helpers').selection
 
 local ls = require 'luasnip'
 local s = ls.snippet
-local t = ls.text_node
-local i = ls.insert_node
-local c = ls.choice_node
+-- local t = ls.text_node
+-- local i = ls.insert_node
+-- local c = ls.choice_node
 local f = ls.function_node
 
 -- Insert Node (i) = i(pos, 'placeholder')
@@ -15,23 +15,14 @@ local f = ls.function_node
 
 return {
   s(
-    'fn',
-    fmt(
-      [[
-      def {}(self, {}):
-        {}
-      ]],
-      { i(1, 'fn'), c(2, { t 'args', t 'some' }), i(3, 'pass') }
-    )
-  ),
-  s(
     'try',
     fmt(
       [[
-      try:
-          {}
-      except:
-          print('error')
+      try {{
+        {}
+      }} catch (err) {{
+        console.log('error', err)
+      }}
       ]],
       { f(selection) }
     )
