@@ -28,9 +28,15 @@ local f = ls.function_node
 
 return {
   s(
-    'todayISO',
+    'date',
     f(function()
       return os.date '%Y-%m-%d'
+    end)
+  ),
+  s(
+    'timestamp',
+    f(function()
+      return os.date '%Y-%m-%d %I:%M %p'
     end)
   ),
   s(
