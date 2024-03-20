@@ -6,7 +6,7 @@ return {
     'rcarriga/nvim-notify',
   },
   config = function()
-    require('luasnip.loaders.from_lua').load { paths = '~/.config/nvim/snippets/' }
+    require('luasnip.loaders.from_lua').load { paths = { '~/.config/nvim/snippets/' } }
 
     require('luasnip').config.set_config {
       store_selection_keys = '<Tab>',

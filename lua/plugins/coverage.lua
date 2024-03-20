@@ -1,5 +1,6 @@
 return {
   'andythigpen/nvim-coverage',
+  cmd = { 'Coverage', 'CoverageSummary', 'CoverageToggle' },
   config = function()
     local coverage = require 'coverage'
     coverage.setup {}
