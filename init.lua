@@ -15,64 +15,13 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
-  -- Theme Color Scheme
   {
-    'catppuccin/nvim',
+    'shaunsingh/nord.nvim',
     lazy = false,
-    name = 'catppuccin',
+    priority = 1000,
     config = function()
-      require('catppuccin').setup {
-        integrations = {
-          noice = true,
-          notifier = true,
-          cmp = true,
-          harpoon = true,
-          mason = true,
-          neotree = true,
-          gitsigns = true,
-          hop = true,
-          telescope = {
-            enabled = true,
-          },
-          lsp_trouble = true,
-          indent_blankline = {
-            enabled = true,
-          },
-          which_key = true,
-          native_lsp = {
-            enabled = true,
-            virtual_text = {
-              errors = {},
-              hints = {},
-              warnings = {},
-              information = {},
-            },
-            underlines = {
-              errors = { 'underline' },
-              hints = { 'underline' },
-              warnings = { 'underline' },
-              information = { 'underline' },
-            },
-            inlay_hints = {
-              background = true,
-            },
-          },
-        },
-        styles = {
-          comments = {},
-          loops = {},
-          functions = {},
-          keywords = {},
-          strings = {},
-          variables = {},
-          numbers = {},
-          booleans = {},
-          properties = {},
-          types = {},
-          operators = {},
-        },
-      }
-      vim.cmd [[colorscheme catppuccin-frappe]]
+      vim.g.nord_bold = false
+      vim.cmd 'colorscheme nord'
     end,
   },
 
@@ -127,6 +76,9 @@ vim.api.nvim_create_autocmd('RecordingLeave', {
     notify('Stopped Macro Recording', 'warn', { title = 'Macros' })
   end,
 })
+
+-- Disable wrap
+vim.o.wrap = false
 
 -- Set highlight on search
 vim.o.hlsearch = false

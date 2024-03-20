@@ -11,7 +11,7 @@ return {
     local git_blame = require 'gitblame'
     require('lualine').setup {
       options = {
-        theme = 'catppuccin',
+        theme = 'nord',
       },
       sections = {
         lualine_c = {
