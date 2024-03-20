@@ -21,6 +21,7 @@ require('lazy').setup({
     priority = 1000,
     config = function()
       vim.g.nord_bold = false
+      vim.g.nord_italic = false
       vim.cmd 'colorscheme nord'
     end,
   },
